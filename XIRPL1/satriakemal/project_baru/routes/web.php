@@ -43,8 +43,7 @@ Route::get('relasi-5',function()
         ->join('walis','walis.id_mahasiswa','=','mahasiswa.id')
         ->get();
         dd(sql);
-    }
-);
+    });
 Route::get('eloquent',function()
 {
     $mahasiswa = Mahasiswa::with('wali','dosen','hobi')->get();
@@ -55,3 +54,26 @@ Route::get('latihanel',function()
     $dsk = Mahasiswa::with('mahasiswa','dosen','hobi','wali')->get()->take(1);
     return view('eloquent',compact('mahasiswa'));
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('beranda', function(){
+    return view('beranda');
+});
+
+Auth::routes();
+Route::get('tentang' , function(){
+    return view('tentang');
+});
+Auth::routes();
+Route::get('kontak' , function(){
+
+
+return view('kontak');
+});
+Route::resource('dosen','DosenController');
+
+Route::resource('hobi','HobiController');
+
+Route::resource('mahasiswa','MahasiswaController');

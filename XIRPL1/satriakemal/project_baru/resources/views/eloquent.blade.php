@@ -11,6 +11,7 @@
     <h3> <-- nama -!> <small>[<--nim-!>]</small></h3>
     <h5> Hobi ?
         @foreach($data->hobi as $val)
+        @section('konten')
         <small>//<!-- hobi -->
          </small>
         @endforeach
