@@ -5,13 +5,16 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    Data hobi
+                    Data Dosen
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="">Nama hobi</label>
-                        <input type="text" name="nama" value="{{$hobi->nama}}" class="form-control" readonly>
+                        <label for="">Nama Dosen</label>
+                        <input type="text" name="nama" value="{{$dosen->nama}}" class="form-control" readonly>
                     </div>
+                        <div class="form-group">
+                        <label for="">Nomor Induk Pegawai Dosen</label>
+                        <input type="text" name="nipd" value="{{$dosen->nipd}}" class="form-control" readonly>
                     </div>
                         <div class="form-group">
                         <a href="{{url()->previous()}}"class="btn btn-primary">Kembali</a>

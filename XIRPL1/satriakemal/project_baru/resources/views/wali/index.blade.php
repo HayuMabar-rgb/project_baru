@@ -10,8 +10,8 @@
                             {{ session('message') }}
                         </div>
                     @endif
-                    Data hobi
-                    <a href="{{route('hobi.create')}}"
+                    Data wali
+                    <a href="{{route('wali.create')}}"
                         class="float-right">
                         Tambah Data
                     </a>
@@ -22,23 +22,24 @@
                             <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Nama Hobi</th>
+                                    <th>Nama</th>
                                     <th>Nipd</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-                                @foreach($hobi as $data)
+                                @foreach($wali as $data)
                                 <tr>
                                     <td>{{$no++}}</td>
-                                    <td>{{$data->hobi}}</td>
+                                    <td>{{$data->nama}}</td>
+                                    <td>{{$data->nipd}}</td>
                                     <td>
-                                    <form action="{{route('hobi.destroy',$data->id)}}" method="post">
+                                    <form action="{{route('wali.destroy',$data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route('hobi.show',$data->id)}}"class ="btn btn-warning">Lihat</a> |
-                                        <a href="{{route('hobi.edit',$data->id)}}"class ="btn btn-primary">Ubah</a> |
+                                        <a href="{{route('wali.show',$data->id)}}"class ="btn btn-warning">Lihat</a> |
+                                        <a href="{{route('wali.edit',$data->id)}}"class ="btn btn-primary">Ubah</a> |
                                         <button type="submit" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger">Hapus</button>
                                     </form>
                                     </td>

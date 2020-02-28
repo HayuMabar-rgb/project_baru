@@ -18,7 +18,10 @@
                         </div>
                         <div class="form-group">
                         <label for="">Nama Dosen</label>
-                        <input type="text" name="id_dosen" value="{{$mahasiswa->nipd}}" class="form-control" readonly>
+                        <select type="text" name="id_dosen" value="{{$mahasiswa->nipd}}" class="form-control" readonly>
+                        <option value="Ujang"></option>
+                        <option value="Usman"></option>
+                        <option value="Uus"></option>
                     </div>
                         <div class="form-group">
                         <a href="{{url()->previous()}}"class="btn btn-primary">Kembali</a>

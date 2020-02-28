@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Wali;
+use App\Dosen;
+use App\Mahasiswa;
 use Illuminate\Http\Request;
 
 class WaliController extends Controller
@@ -14,7 +16,8 @@ class WaliController extends Controller
      */
     public function index()
     {
-        //
+        $wali = Wali::all();
+        return view('wali.index',compact('mahasiswa','dosen'));
     }
 
     /**
@@ -24,7 +27,8 @@ class WaliController extends Controller
      */
     public function create()
     {
-        //
+        $wali = Wali::all();
+        return view('wali.index',compact('dosen'));
     }
 
     /**
@@ -35,7 +39,12 @@ class WaliController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $wali = new Wali();
+        $wali->nama = $request->nama;
+        $wali->nipd = $request->nipd;
+        $wali->id_mahasiswa = $request->id_mahasiswa;
+        $wali->save();
+        return redirect()->route('wali.index')->with(['message'=>'Data wali berhasil dibuat']);
     }
 
     /**
@@ -46,7 +55,9 @@ class WaliController extends Controller
      */
     public function show(Wali $wali)
     {
-        //
+        $wali = Wali::findOrFail($id);
+        return view('wali.show',compact('wali','mahasiswa'));
+        
     }
 
     /**
@@ -57,7 +68,9 @@ class WaliController extends Controller
      */
     public function edit(Wali $wali)
     {
-        //
+        $mahasiswa = Mahasiswa::all();
+        $wali = Wali::findOrFail($id);
+        return view('wali.edit',compact('wali','mahasiswa'));
     }
 
     /**
@@ -69,7 +82,12 @@ class WaliController extends Controller
      */
     public function update(Request $request, Wali $wali)
     {
-        //
+        $wali = Wali::findOrFail();
+        $wali->nama = $request ->nama;
+        $wali->nipd = $request ->nipd;
+        $wali->id_mahasiswa= $request ->id_mahasiswa;
+        $wali->save();
+        return redirect()->route('wali.index')->with(['message'=>'Data Wali Berhasil diubah']);
     }
 
     /**
@@ -80,6 +98,7 @@ class WaliController extends Controller
      */
     public function destroy(Wali $wali)
     {
-        //
+        $wali =   Wali::findOrFail($id);
+        return redirect()->route('wali.index')->with(['message'=>'Data Wali Berhasil dihapus']);
     }
 }

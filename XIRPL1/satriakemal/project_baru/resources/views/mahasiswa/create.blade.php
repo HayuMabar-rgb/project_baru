@@ -13,9 +13,10 @@
                         <div class="form-group">
                             <label for="">nama Dosen</label>
                             <select type="text" name="id_dosen" class="form-control" required>
-                            @foreach($dosen as $data);
-                            <option value="{{$data->id}}">{{$data->$nama}}</option>
-                            @endforeach
+                            <option value="*">DAFTAR NAMA DOSEN</option>
+                            <option value="1">Jajang sukmara</option>
+                            <option value="2">Edi Bajing</option>
+                            <option value="3">RR</option>
                             </select>
                         </div>
                         
